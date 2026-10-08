@@ -22,3 +22,8 @@ a:visited {
 img {
   border: 4px ridge #ffffff;
 }
+
+ul, 
+ul li {
+    text-decoration: none;
+}

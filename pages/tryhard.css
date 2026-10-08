@@ -1,0 +1,193 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.25s;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid #aaa;
+    padding: 12px;
+}
+
+button, input {
+    padding: 8px 12px;
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Fun control panel */
+
+#fun-panel {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 1000;
+    width: min(340px, calc(100vw - 24px));
+    max-height: 45vh;
+    overflow-y: auto;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0 #888;
+    padding: 12px;
+    font-size: 12px;
+}
+
+#fun-panel button {
+    margin: 3px;
+    font-size: 12px;
+}
+
+#fun-panel h3 {
+    margin: 0 0 8px;
+}
+
+#stats {
+    margin-top: 10px;
+    font-family: monospace;
+}
+
+/* Notifications */
+
+#toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3000;
+    background: #222;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    max-width: 90vw;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Terminal */
+
+#terminal {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: min(420px, calc(100vw - 24px));
+    background: #111;
+    color: lime;
+    border: 2px solid lime;
+    padding: 12px;
+    z-index: 2000;
+    font-family: monospace;
+}
+
+#terminal input {
+    background: #111;
+    color: lime;
+    border: 1px solid lime;
+    width: 100%;
+}
+
+#terminal-output {
+    max-height: 180px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+#close-terminal {
+    float: right;
+}
+
+/* Effects */
+
+.hidden {
+    display: none !important;
+}
+
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 2500;
+    font-size: 24px;
+}
+
+.achievement {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: gold;
+    color: black;
+    padding: 15px;
+    border: 3px solid black;
+    z-index: 4000;
+    max-width: 280px;
+}
+
+.disco {
+    animation: disco 0.35s infinite alternate;
+}
+
+@keyframes disco {
+    0%   { background: #ff9a9a; }
+    25%  { background: #a9ffb0; }
+    50%  { background: #a6c8ff; }
+    75%  { background: #fff59a; }
+    100% { background: #ddaaff; }
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 16px;
+        padding-bottom: 200px;
+    }
+
+    #fun-panel {
+        max-height: 32vh;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    td {
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .disco {
+        animation: none;
+    }
+
+    img {
+        transition: none;
+    }
+}
+

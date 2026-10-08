@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f8f4">
+  <title>Corn Wallace Jaywalk | Cybersecurity & Cherry Enthusiast</title>
+  <style>
+    :root { --ink:#1d2b24; --muted:#627068; --paper:#f8f8f4; --green:#245740; --line:#dce2da; --cherry:#ae3443; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:inherit; }
+    .shell { max-width:980px; margin:0 auto; padding:0 34px; }
+    header { border-bottom:1px solid var(--line); }
+    .nav { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .logo { font-size:18px; font-weight:800; text-decoration:none; letter-spacing:-.8px; white-space:nowrap; }
+    .logo span { color:var(--cherry); }
+    nav { display:flex; align-items:center; gap:28px; }
+    nav a { text-decoration:none; color:var(--muted); font-size:13px; font-weight:650; }
+    nav a:hover, .contact a:hover { color:var(--cherry); }
+    .hero { display:grid; grid-template-columns:1.15fr .85fr; gap:72px; align-items:center; padding:100px 0 106px; }
+    .eyebrow { display:flex; gap:9px; align-items:center; text-transform:uppercase; letter-spacing:2px; font-weight:750; font-size:11px; color:var(--green); }
+    .eyebrow::before { content:""; width:7px; height:7px; border-radius:50%; background:var(--cherry); }
+    h1 { font-size:clamp(46px,6.5vw,76px); line-height:1.07; letter-spacing:-4px; margin:20px 0 24px; font-weight:800; }
+    h1 em { font-style:normal; color:var(--green); }
+    .intro { max-width:500px; color:var(--muted); font-size:17px; margin:0 0 34px; }
+    .buttons { display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { padding:13px 20px; border:1px solid var(--green); border-radius:6px; text-decoration:none; font:700 13px/1.4 inherit; display:inline-flex; align-items:center; justify-content:center; min-height:45px; cursor:pointer; transition:transform .2s,background .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .btn.primary { background:var(--green); color:white; }
+    .btn.secondary { background:transparent; color:var(--green); }
+    .photo-wrap { position:relative; padding:12px 12px 22px; background:#e9eee6; border:1px solid var(--line); border-radius:10px; transform:rotate(2deg); box-shadow:16px 16px 0 #e0e8de; }
+    .photo-wrap img { display:block; width:100%; aspect-ratio:1.12; object-fit:cover; border-radius:5px; }
+    .photo-wrap .note { font:600 12px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace; color:var(--muted); padding:14px 4px 0; text-align:center; }
+    .photo-sticker { position:absolute; top:-20px; right:-20px; padding:10px 14px; color:white; background:var(--cherry); border-radius:50px; font-size:12px; font-weight:750; transform:rotate(9deg); box-shadow:0 6px 16px #243d2b1a; }
+    section.content { padding:65px 0; border-top:1px solid var(--line); }
+    .section-heading { display:flex; justify-content:space-between; gap:20px; align-items:baseline; margin-bottom:32px; }
+    h2 { font-size:29px; line-height:1.25; letter-spacing:-1.1px; margin:0; }
+    .section-num { color:var(--cherry); font:700 12px ui-monospace,monospace; }
+    .about-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:70px; }
+    .about-copy p { max-width:610px; color:#4f5d55; margin:0 0 16px; }
+    .facts { border-left:2px solid var(--line); padding-left:26px; }
+    .fact { margin-bottom:18px; }
+    .fact small { text-transform:uppercase; color:var(--muted); letter-spacing:1.3px; font-size:10px; font-weight:750; display:block; }
+    .fact strong { display:block; font-size:14px; margin-top:3px; }
+    .projects { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .project { padding:25px 23px 28px; border:1px solid var(--line); border-radius:8px; background:#fff; transition:transform .2s,border-color .2s; }
+    .project:hover { transform:translateY(-4px); border-color:#a3b5a7; }
+    .project .number { font:700 12px ui-monospace,monospace; color:var(--cherry); }
+    .project h3 { margin:28px 0 10px; font-size:18px; letter-spacing:-.5px; line-height:1.3; }
+    .project p { font-size:13px; line-height:1.75; color:var(--muted); margin:0 0 22px; }
+    .tag { background:#ecf2ec; color:var(--green); padding:5px 8px; font:700 10px ui-monospace,monospace; border-radius:3px; display:inline-block; }
+    .contact { background:#e9efe7; border-top:1px solid #d8e2d6; padding:60px 0; }
+    .contact-inner { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; }
+    .contact p { color:var(--muted); max-width:430px; margin:14px 0 0; }
+    .contact-links { display:flex; flex-direction:column; gap:11px; text-align:right; font-size:14px; font-weight:650; }
+    .contact-links a { text-decoration:none; }
+    footer { padding:24px 0; border-top:1px solid #d8e2d6; background:#e9efe7; color:var(--muted); font-size:11px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; }
+    #toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); padding:13px 18px; background:var(--ink); color:white; border-radius:7px; font-size:13px; box-shadow:0 8px 30px #0002; z-index:10; max-width:calc(100vw - 32px); text-align:center; }
+    #toast[hidden] { display:none; }
+    @media(max-width:750px) { .shell {padding:0 23px;} .nav {min-height:70px;} nav {gap:15px;} .hero {grid-template-columns:1fr; gap:52px; padding:68px 0 78px;} .photo-wrap {max-width:390px; margin:0 auto; width:calc(100% - 25px);} h1 {letter-spacing:-2.8px;} .about-grid {grid-template-columns:1fr;gap:24px;} .facts {border-left:0; border-top:2px solid var(--line); padding:20px 0 0; display:grid; grid-template-columns:1fr 1fr; gap:8px;} .projects {grid-template-columns:1fr;} .project h3 {margin-top:14px;} .contact-inner {align-items:flex-start;flex-direction:column;} .contact-links {text-align:left;} }
+    @media(max-width:410px) { .shell {padding:0 18px;} nav {gap:10px;} nav a {font-size:12px;} .logo {font-size:16px;} .photo-sticker {right:-10px;} h1 {font-size:44px;} }
+    @media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*::before,*::after {transition:none!important;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shell nav">
+      <a href="#top" class="logo">corn<span>.</span>security</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <div class="shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <div class="eyebrow">Cybersecurity professional · Cherry enthusiast</div>
+          <h1>Hi, I'm Corn Wallace Jaywalk.<br><em>I find bugs.</em><br>And cherries.</h1>
+          <p class="intro">Small lizard. Big security mindset. I help keep systems secure, uncover vulnerabilities, and occasionally take a very important cherry break.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">View my work ↗</a>
+            <button class="btn secondary" type="button" id="resume-btn">↓ Download résumé</button>
+          </div>
+        </div>
+        <div class="photo-wrap">
+          <span class="photo-sticker">open to cherries 🍒</span>
+          <img src="lizard-licking-cherry.png" alt="Corn Wallace Jaywalk the green lizard enthusiastically licking a bright red cherry" loading="eager">
+          <div class="note">fig. 01 — conducting important field research</div>
+        </div>
+      </section>
+      <section id="about" class="content" aria-labelledby="about-heading">
+        <div class="section-heading"><h2 id="about-heading">A little about me</h2><span class="section-num">01 / ABOUT</span></div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p>I'm Corn Wallace Jaywalk, a cybersecurity specialist with a keen eye for suspicious activity and an even keener eye for ripe cherries. My work focuses on finding weaknesses before the bad guys do, from web application testing to home lab experiments.</p>
+            <p>When I'm not reviewing logs or auditing access controls, you can usually find me basking in the sun, scaling improbable surfaces, or defending my snack perimeter.</p>
+          </div>
+          <div class="facts">
+            <div class="fact"><small>Specialty</small><strong>Offensive Security</strong></div>
+            <div class="fact"><small>Experience</small><strong>3+ years (lizard years)</strong></div>
+            <div class="fact"><small>Favorite tool</small><strong>Burp Suite & tiny claws</strong></div>
+            <div class="fact"><small>Fuel</small><strong>Fresh cherries 🍒</strong></div>
+          </div>
+        </div>
+      </section>
+      <section id="projects" class="content" aria-labelledby="projects-heading">
+        <div class="section-heading"><h2 id="projects-heading">Selected projects</h2><span class="section-num">02 / PROJECTS</span></div>
+        <div class="projects">
+          <article class="project"><span class="number">PROJECT_01</span><h3>CherryGuard</h3><p>A lightweight network-monitoring experiment for spotting unusual traffic near mission-critical fruit storage.</p><span class="tag">NETWORK SECURITY</span></article>
+          <article class="project"><span class="number">PROJECT_02</span><h3>Shell & Scale</h3><p>A personal Linux homelab for testing system hardening, privilege boundaries, and secure configurations.</p><span class="tag">LINUX · HOMELAB</span></article>
+          <article class="project"><span class="number">PROJECT_03</span><h3>Bug Hunter's Log</h3><p>A collection of sample web application assessments, vulnerability writeups, and lessons learned in the field.</p><span class="tag">WEB SECURITY</span></article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <section class="contact" id="contact" aria-labelledby="contact-heading">
+    <div class="shell contact-inner">
+      <div><div class="eyebrow">Get in touch</div><h2 id="contact-heading" style="margin-top:13px">Let's make the web safer.</h2><p>Have a project, security question, or a particularly good cherry recommendation? My inbox is open.</p></div>
+      <div class="contact-links"><a href="mailto:corn.wallace.jaywalk@cherrysec.example">corn.wallace.jaywalk@cherrysec.example ↗</a><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+    </div>
+  </section>
+  <footer><div class="shell footer-inner"><span>© 2026 Corn Wallace Jaywalk. Built with tiny claws.</span><span>Secure by design. Powered by cherries. 🍒</span></div></footer>
+  <div id="toast" hidden role="status" aria-live="polite"></div>
+  <script>
+    const button = document.querySelector('#resume-btn');
+    const toast = document.querySelector('#toast');
+    let timeout;
+    button.addEventListener('click', () => {
+      toast.textContent = '🍒 Résumé unavailable. Corn Wallace Jaywalk is currently negotiating payment in cherries.';
+      toast.hidden = false;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => { toast.hidden = true; }, 4000);
+    });
+  </script>
+</body>
+</html>
